@@ -26,6 +26,8 @@ class SiteController extends Controller
         return inertia('Shop', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
+            'title' => 'Наш магазин',
+            'breadcrumb' => 'Магазин',
         ]);
     }
     public function about()

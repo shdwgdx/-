@@ -1,212 +1,332 @@
 <script setup>
 import { Head, Link } from "@inertiajs/inertia-vue3";
+import { Navbar, NavbarLogo, NavbarCollapse, NavbarLink } from "flowbite-vue";
 </script>
 
 
 <template>
-  <nav
-    class="
-      bg-white
-      border-gray-200
-      px-2
-      sm:px-4
-      py-2.5
-      rounded
-      dark:bg-gray-900
-    "
-  >
-    <div class="container flex flex-wrap items-center justify-between mx-auto">
-      <a href="https://flowbite.com/" class="flex items-center">
-        <img
-          src="https://flowbite.com/docs/images/logo.svg"
-          class="h-6 mr-3 sm:h-9"
-          alt="Flowbite Logo"
-        />
-        <span
-          class="
-            self-center
-            text-xl
-            font-semibold
-            whitespace-nowrap
-            dark:text-white
-          "
-          >Flowbite</span
+  <section class="container">
+    <div class="flex mb-6">
+      <div class="mr-[33px]">
+        <label for="sort" class="mr-[15px]">Сортировать:</label>
+        <select
+          name=""
+          id="sort"
+          class="w-[236px] border border-solid border-[#E0E0E0] rounded-md"
         >
-      </a>
-      <button
-        data-collapse-toggle="navbar-default"
-        type="button"
-        class="
-          inline-flex
-          items-center
-          p-2
-          ml-3
-          text-sm text-gray-500
-          rounded-lg
-          md:hidden
-          hover:bg-gray-100
-          focus:outline-none focus:ring-2 focus:ring-gray-200
-          dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600
-        "
-        aria-controls="navbar-default"
-        aria-expanded="false"
-      >
-        <span class="sr-only">Open main menu</span>
-        <svg
-          class="w-6 h-6"
-          aria-hidden="true"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
+          <option value="" selected>Новые</option>
+          <option value="">Старые</option>
+        </select>
+      </div>
+      <div>
+        <label for="sort" class="mr-[15px]">Отобразить:</label>
+        <select
+          name=""
+          id="sort"
+          class="w-[236px] border border-solid border-[#E0E0E0] rounded-md"
         >
-          <path
-            fill-rule="evenodd"
-            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-            clip-rule="evenodd"
-          ></path>
-        </svg>
-      </button>
-      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-        <ul
-          class="
-            flex flex-col
-            p-4
-            mt-4
-            border border-gray-100
-            rounded-lg
-            bg-gray-50
-            md:flex-row
-            md:space-x-8
-            md:mt-0
-            md:text-sm
-            md:font-medium
-            md:border-0
-            md:bg-white
-            dark:bg-gray-800
-            md:dark:bg-gray-900
-            dark:border-gray-700
-          "
-        >
-          <li>
-            <a
-              href="#"
-              class="
-                block
-                py-2
-                pl-3
-                pr-4
-                text-white
-                bg-blue-700
-                rounded
-                md:bg-transparent md:text-blue-700 md:p-0
-                dark:text-white
-              "
-              aria-current="page"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="
-                block
-                py-2
-                pl-3
-                pr-4
-                text-gray-700
-                rounded
-                hover:bg-gray-100
-                md:hover:bg-transparent
-                md:border-0
-                md:hover:text-blue-700
-                md:p-0
-                dark:text-gray-400
-                md:dark:hover:text-white
-                dark:hover:bg-gray-700 dark:hover:text-white
-                md:dark:hover:bg-transparent
-              "
-              >About</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="
-                block
-                py-2
-                pl-3
-                pr-4
-                text-gray-700
-                rounded
-                hover:bg-gray-100
-                md:hover:bg-transparent
-                md:border-0
-                md:hover:text-blue-700
-                md:p-0
-                dark:text-gray-400
-                md:dark:hover:text-white
-                dark:hover:bg-gray-700 dark:hover:text-white
-                md:dark:hover:bg-transparent
-              "
-              >Services</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="
-                block
-                py-2
-                pl-3
-                pr-4
-                text-gray-700
-                rounded
-                hover:bg-gray-100
-                md:hover:bg-transparent
-                md:border-0
-                md:hover:text-blue-700
-                md:p-0
-                dark:text-gray-400
-                md:dark:hover:text-white
-                dark:hover:bg-gray-700 dark:hover:text-white
-                md:dark:hover:bg-transparent
-              "
-              >Pricing</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="
-                block
-                py-2
-                pl-3
-                pr-4
-                text-gray-700
-                rounded
-                hover:bg-gray-100
-                md:hover:bg-transparent
-                md:border-0
-                md:hover:text-blue-700
-                md:p-0
-                dark:text-gray-400
-                md:dark:hover:text-white
-                dark:hover:bg-gray-700 dark:hover:text-white
-                md:dark:hover:bg-transparent
-              "
-              >Contact</a
-            >
-          </li>
-        </ul>
+          <option value="" selected>Все</option>
+          <option value="">5-10</option>
+          <option value="">10-15</option>
+        </select>
       </div>
     </div>
-  </nav>
+    <div class="flex justify-between">
+      <!-- preloader -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 animate-pulse">
+        <div class="mb-6 mr-6" v-for="n in 9" :key="n">
+          <div class="w-[312px] h-[267px] bg-gray-400 mb-4"></div>
+          <div class="h-4 bg-gray-400 rounded w-[100px] mb-4"></div>
+          <div class="h-4 bg-gray-400 rounded w-[50px]"></div>
+        </div>
+      </div>
+      <!-- sort-menu -->
+      <div
+        class="
+          w-[312px]
+          flex
+          justify-center
+          border border-solid border-[#F2F2F2]
+          rounded-md
+        "
+      >
+        <div class="w-[248px] flex flex-col">
+          <div class="mt-6 mb-6 w-[248px] relative">
+            <input
+              type="text"
+              placeholder="Search product"
+              class="bg-[rgba(255_159_13_/0.1)] border-0 w-[248px]"
+              v-model="search"
+              @keydown.enter="
+                $wire.searching(textSearch);
+                textSearch = '';
+              "
+            />
+            <button
+              class="
+                bg-[#FF9F0D]
+                w-[40px]
+                h-[40px]
+                absolute
+                top-0
+                right-0
+                z-50
+                flex
+                justify-center
+                items-center
+              "
+              @click="
+                $wire.searching(textSearch);
+                textSearch = '';
+                $dispatch('foo');
+              "
+            >
+              <img :src="'images/MagnifyingGlass.svg'" alt="" class="" />
+            </button>
+          </div>
+          <div class="mb-6">
+            <h2
+              class="text-xl font-['Helvetica'] text-[#333333] font-bold mb-6"
+            >
+              Category
+            </h2>
+            <div class="flex flex-col" x-data="{ checked: [] }">
+              <!-- @foreach ($categories as $category)
+              <div class="flex items-center mb-4">
+                <input
+                  type="checkbox"
+                  id="{{ $category->title }}"
+                  value="{{ $category->id }}"
+                  class="mr-2"
+                  x-model="checked"
+                  @change="$wire.check(checked)"
+                />
+                <label
+                  for="{{ $category->title }}"
+                  >{{ $category->title }}</label
+                >
+              </div>
+              @endforeach -->
+            </div>
+          </div>
+          <div class="mb-6">
+            <h2
+              class="text-xl font-['Helvetica'] text-[#333333] font-bold mb-4"
+            >
+              Filter By Price
+            </h2>
+            <div class="flex items-center justify-center">
+              <input
+                type="range"
+                min="100"
+                max="1000"
+                step="10"
+                v-model="rangee"
+              />
+              <div
+                x-init="mintrigger();
+                    maxtrigger()"
+                class="relative w-full max-w-xl"
+              >
+                <div class="mb-2">
+                  <input
+                    type="range"
+                    step="100"
+                    :min="min"
+                    :max="max"
+                    @change="mintrigger"
+                    v-model="minprice"
+                    class="
+                      absolute
+                      z-20
+                      w-full
+                      h-2
+                      opacity-0
+                      appearance-none
+                      cursor-pointer
+                      pointer-events-none
+                    "
+                  />
+
+                  <input
+                    type="range"
+                    step="100"
+                    :min="min"
+                    :max="max"
+                    @change="maxtrigger"
+                    v-model="maxprice"
+                    class="
+                      absolute
+                      z-20
+                      w-full
+                      h-2
+                      opacity-0
+                      appearance-none
+                      cursor-pointer
+                      pointer-events-none
+                    "
+                  />
+
+                  <div class="relative z-10 h-[5px]">
+                    <div
+                      class="
+                        absolute
+                        top-0
+                        bottom-0
+                        left-0
+                        right-0
+                        z-10
+                        bg-gray-200
+                        rounded-md
+                      "
+                    ></div>
+
+                    <div
+                      class="
+                        absolute
+                        top-0
+                        bottom-0
+                        z-20
+                        bg-[#FF9F0D]
+                        shadow-[0_4px_4px_rgba(0,0,0,0.25)]
+                        rounded-md
+                      "
+                      :style="'right:' + maxthumb + '%; left:' + minthumb + '%'"
+                    ></div>
+
+                    <div
+                      class="
+                        absolute
+                        top-1
+                        left-0
+                        z-30
+                        w-[11px]
+                        h-[12px]
+                        -mt-2
+                        -ml-1
+                        bg-white
+                        flex
+                        items-center
+                        justify-center
+                        rounded-full
+                      "
+                      :style="'left: ' + minthumb + '%'"
+                    >
+                      <div
+                        class="w-[6px] h-[6px] bg-[#FF9F0D] rounded-full"
+                      ></div>
+                    </div>
+
+                    <div
+                      class="
+                        absolute
+                        top-1
+                        right-0
+                        z-30
+                        w-[11px]
+                        h-[12px]
+                        -mt-2
+                        -mr-1
+                        bg-white
+                        flex
+                        items-center
+                        justify-center
+                        rounded-full
+                      "
+                      :style="'right: ' + maxthumb + '%'"
+                    >
+                      <div
+                        class="w-[6px] h-[6px] bg-[#FF9F0D] rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-between">
+                  <p class="text-base font-['Inter'] text-[#1E1E1E] font-[300]">
+                    From <span>{{ minprice }}</span
+                    >₽ to <span>{{ maxprice }}</span
+                    >₽
+                  </p>
+                  <p class="text-base font-['Inter'] text-[#0D0D0D] font-[300]">
+                    Filter
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h2
+              class="text-xl font-['Helvetica'] text-[#333333] font-bold mb-6"
+            >
+              Latest Products
+            </h2>
+            <div class="flex flex-col w-[252px]">
+              <div class="flex mb-[18px]">
+                <img
+                  :src="'images/latestitem1.png'"
+                  alt=""
+                  class="mr-4 w-[70px] h-[65px]"
+                />
+                <div class="flex flex-col mb-[18px]">
+                  <h3 class="text-base font-['Helvetica'] text-[#4F4F4F] mb-2">
+                    Pizza
+                  </h3>
+                  <img src="" alt="" class="mb-1" />
+                  <p class="text-sm font-['Helvetica'] text-[#4F4F4F]">
+                    $35.00
+                  </p>
+                </div>
+              </div>
+              <div class="flex mb-[18px]">
+                <img
+                  :src="'images/latestitem1.png'"
+                  alt=""
+                  class="mr-4 w-[70px] h-[65px]"
+                />
+                <div class="flex flex-col">
+                  <h3 class="text-base font-['Helvetica'] text-[#4F4F4F] mb-2">
+                    Pizza
+                  </h3>
+                  <img src="" alt="" class="mb-1" />
+                  <p class="text-sm font-['Helvetica'] text-[#4F4F4F]">
+                    $35.00
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
-  setup() {
-    return {};
+  data() {
+    return {
+      search: "",
+      minprice: 0,
+      maxprice: 8000,
+      min: 0,
+      max: 8000,
+      minthumb: 0,
+      maxthumb: 0,
+    };
+  },
+  methods: {
+    mintrigger() {
+      this.minprice = Math.min(this.minprice, this.maxprice - 500);
+      this.minthumb =
+        ((this.minprice - this.min) / (this.max - this.min)) * 100;
+    },
+
+    maxtrigger() {
+      this.maxprice = Math.max(this.maxprice, this.minprice + 500);
+      this.maxthumb =
+        100 - ((this.maxprice - this.min) / (this.max - this.min)) * 100;
+    },
   },
 };
 </script>
+
