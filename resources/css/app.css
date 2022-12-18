@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    .slider-yellow {
+        --slider-connect-bg: #d7f63b;
+        --slider-tooltip-bg: #d7f63b;
+        --slider-handle-ring-color: #5fa70030;
+    }
+}

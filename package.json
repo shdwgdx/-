@@ -20,8 +20,10 @@
         "vue": "^3.2.41"
     },
     "dependencies": {
+        "@vueform/slider": "^2.1.5",
         "daisyui": "^2.42.1",
         "flowbite": "^1.5.4",
-        "flowbite-vue": "^0.0.9"
+        "flowbite-vue": "^0.0.9",
+        "multi-range-slider-vue": "^1.1.4"
     }
 }

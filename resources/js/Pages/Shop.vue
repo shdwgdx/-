@@ -1,6 +1,7 @@
 <script setup>
 import { Head, Link } from "@inertiajs/inertia-vue3";
 import { Navbar, NavbarLogo, NavbarCollapse, NavbarLink } from "flowbite-vue";
+import Slider from "@vueform/slider";
 </script>
 
 
@@ -115,145 +116,27 @@ import { Navbar, NavbarLogo, NavbarCollapse, NavbarLink } from "flowbite-vue";
             >
               Filter By Price
             </h2>
-            <div class="flex items-center justify-center">
-              <input
-                type="range"
-                min="100"
-                max="1000"
-                step="10"
-                v-model="rangee"
-              />
-              <div
-                x-init="mintrigger();
-                    maxtrigger()"
-                class="relative w-full max-w-xl"
-              >
-                <div class="mb-2">
-                  <input
-                    type="range"
-                    step="100"
-                    :min="min"
-                    :max="max"
-                    @change="mintrigger"
-                    v-model="minprice"
-                    class="
-                      absolute
-                      z-20
-                      w-full
-                      h-2
-                      opacity-0
-                      appearance-none
-                      cursor-pointer
-                      pointer-events-none
-                    "
-                  />
 
-                  <input
-                    type="range"
-                    step="100"
-                    :min="min"
-                    :max="max"
-                    @change="maxtrigger"
-                    v-model="maxprice"
-                    class="
-                      absolute
-                      z-20
-                      w-full
-                      h-2
-                      opacity-0
-                      appearance-none
-                      cursor-pointer
-                      pointer-events-none
-                    "
-                  />
-
-                  <div class="relative z-10 h-[5px]">
-                    <div
-                      class="
-                        absolute
-                        top-0
-                        bottom-0
-                        left-0
-                        right-0
-                        z-10
-                        bg-gray-200
-                        rounded-md
-                      "
-                    ></div>
-
-                    <div
-                      class="
-                        absolute
-                        top-0
-                        bottom-0
-                        z-20
-                        bg-[#FF9F0D]
-                        shadow-[0_4px_4px_rgba(0,0,0,0.25)]
-                        rounded-md
-                      "
-                      :style="'right:' + maxthumb + '%; left:' + minthumb + '%'"
-                    ></div>
-
-                    <div
-                      class="
-                        absolute
-                        top-1
-                        left-0
-                        z-30
-                        w-[11px]
-                        h-[12px]
-                        -mt-2
-                        -ml-1
-                        bg-white
-                        flex
-                        items-center
-                        justify-center
-                        rounded-full
-                      "
-                      :style="'left: ' + minthumb + '%'"
-                    >
-                      <div
-                        class="w-[6px] h-[6px] bg-[#FF9F0D] rounded-full"
-                      ></div>
-                    </div>
-
-                    <div
-                      class="
-                        absolute
-                        top-1
-                        right-0
-                        z-30
-                        w-[11px]
-                        h-[12px]
-                        -mt-2
-                        -mr-1
-                        bg-white
-                        flex
-                        items-center
-                        justify-center
-                        rounded-full
-                      "
-                      :style="'right: ' + maxthumb + '%'"
-                    >
-                      <div
-                        class="w-[6px] h-[6px] bg-[#FF9F0D] rounded-full"
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex justify-between">
-                  <p class="text-base font-['Inter'] text-[#1E1E1E] font-[300]">
-                    From <span>{{ minprice }}</span
-                    >₽ to <span>{{ maxprice }}</span
-                    >₽
-                  </p>
-                  <p class="text-base font-['Inter'] text-[#0D0D0D] font-[300]">
-                    Filter
-                  </p>
-                </div>
-              </div>
+            <Slider
+              v-model="value"
+              :max="8000"
+              :step="10"
+              :tooltips="false"
+              :lazy="false"
+              class="slider-yellow"
+            />
+            <div class="flex justify-between">
+              <p class="text-base font-['Inter'] text-[#1E1E1E] font-[300]">
+                From <span>{{ value[0] }}</span
+                >₽ to <span>{{ value[1] }}</span
+                >₽
+              </p>
+              <p class="text-base font-['Inter'] text-[#0D0D0D] font-[300]">
+                Filter
+              </p>
             </div>
           </div>
+          <!-- Latest products -->
           <div>
             <h2
               class="text-xl font-['Helvetica'] text-[#333333] font-bold mb-6"
@@ -306,27 +189,11 @@ export default {
   data() {
     return {
       search: "",
-      minprice: 0,
-      maxprice: 8000,
-      min: 0,
-      max: 8000,
-      minthumb: 0,
-      maxthumb: 0,
+      value: [0, 8000],
     };
   },
-  methods: {
-    mintrigger() {
-      this.minprice = Math.min(this.minprice, this.maxprice - 500);
-      this.minthumb =
-        ((this.minprice - this.min) / (this.max - this.min)) * 100;
-    },
-
-    maxtrigger() {
-      this.maxprice = Math.max(this.maxprice, this.minprice + 500);
-      this.maxthumb =
-        100 - ((this.maxprice - this.min) / (this.max - this.min)) * 100;
-    },
-  },
+  methods: {},
 };
 </script>
 
+<style src="@vueform/slider/themes/default.css"></style>
